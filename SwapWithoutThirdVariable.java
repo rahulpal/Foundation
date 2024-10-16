@@ -6,6 +6,7 @@ public class SwapWithoutThirdVariable {
         System.out.println("Enter the two values to be swapped :");
         int a = sc.nextInt();
         int b = sc.nextInt();
+        sc.close();
         System.out.println("Value of a = " + a + " and value of b = " + b + " before swapping");
         a = a + b;
         b = a - b;
