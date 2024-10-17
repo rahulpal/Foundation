@@ -1,0 +1,144 @@
+Logical AND (&&):
+Applies to: Boolean expressions (true/false).
+
+Purpose: Used to evaluate logical conditions.
+
+Behavior: The result is true if both operands are true; otherwise, the result is false.
+ If the first condition is false, the second condition is not evaluated (this is called short-circuiting).
+
+*********************************************************************************************************************
+ Bitwise AND (&):
+Applies to: Individual bits in binary representations of integers (or binary data).
+
+Purpose: Used to compare bits in two integers.
+
+Behavior: The result is 1 if both bits are 1, otherwise the result is 0.
+ It compares every bit in the operands.
+
+*************************************************************************************************************************
+Below program demonstrates short circuiting :
+import static java.lang.System.out;
+
+public class Myclass {
+
+	
+	public static void main(String[] args) {
+	
+		 int a,b,i;
+		   a=0;
+		   b=0;
+
+		 for(i=0;i<5;i++)
+		 {
+			if((++a>2)&&(++b>2))//F
+			{
+			    a++;
+			}
+			out.println(a);    //1 2
+			out.println(b);   // 0
+
+		  }
+
+
+	}
+
+}
+
+*************************************************************************************************************************
+Bitwise AND & does not demonstrates short circuting as seen in the below program :
+import static java.lang.System.out;
+public class Myclass {
+
+	public static void main(String[] args) {	
+	
+		 int a,b,i;
+		   a=0;
+		   b=0;
+		 for(i=0;i<5;i++)//0 1 2 3 4 5
+		 {
+			if((++a>2)&(++b>2))
+			{
+			    a++;
+			}
+			out.println(a);    //1 2 4 6 8
+			out.println(b);    // 1 2 3 4 5
+
+		  }
+
+	}
+
+}
+
+*************************************************************************************************************************
+Logical OR (||):
+Applies to: Boolean expressions (true/false).
+
+Purpose: Used to evaluate logical conditions.
+
+Behavior: The result is true if at least one of the conditions is true; otherwise, the result is false. 
+It uses short-circuiting, meaning if the first operand is true, the second operand is not evaluated because the result is already true.
+
+***************************************************************************************************************************************************
+Bitwise OR (|):
+Applies to: Individual bits in binary representations of integers (or binary data).
+
+Purpose: Used to compare bits in two integers.
+
+Behavior: The result is 1 if at least one of the corresponding bits is 1; otherwise, the result is 0. 
+It compares every bit of both operands.
+
+***************************************************************************************************************************************************
+Below program demonstrates short circuiting of Logical OR (||) :
+
+import static java.lang.System.out;
+
+public class Myclass {
+
+   public static void main(String[] args) {
+	
+		 int a,b,i;
+		   a=5;
+		   b=0;
+		 for(i=0;i<5;i++)
+		 {
+			if((++a>2)||(++b>2))
+			{
+			    a++;
+			}
+	out.println(a);    //7 9  11  13  15
+			out.println(b);     // 0  0  0     0   0
+
+		  }
+
+	}
+
+}
+
+
+***************************************************************************************************************************************************
+Below program showa that Bitwise OR does not demonstrates short circuiting :
+import static java.lang.System.out;
+
+public class Myclass {
+
+	public static void main(String[] args) {
+	
+		 int a,b,i;
+		   a=5;
+		   b=0;
+		 for(i=0;i<5;i++)	
+		 {
+			if((++a>2)|(++b>2))
+			{
+			    a++;
+			}
+			out.println(a);    //7 9 11 13 15
+		    out.println(b);      //1  2  3   4   5 
+		  }
+
+	}
+
+}
+
+
+***************************************************************************************************************************************************
